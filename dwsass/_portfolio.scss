@@ -1,0 +1,376 @@
+//portfolio projects
+
+#latestprojects {
+	background: #292736;
+	//experimental
+	position: relative;
+	//top: 600px;
+	z-index: 1000;
+	@media #{$smalltabletless} {
+		top: 0;
+	}
+		.previewportfolio {
+			border: 4px solid #312E40;
+			margin-bottom: 15px;
+				img {
+					width: 100%!important;
+				}
+		}
+	
+		.projectintro {
+			background: #403E4C;
+			border-left: 4px solid #F67004;
+			color: $white;
+			font-size: 18px;
+			margin: 20px 0 20px 0;
+				p {
+					padding: 10px;
+				}
+				ul {
+					padding-bottom: 10px;
+				}
+		}
+		.project {
+			margin: 10px 0 0 0;
+			img {
+				border: 4px solid #2A273A;
+				max-width: 100%;
+				@media #{$mobileless} {
+					width: 100%;
+				}	
+			}		
+		}
+		.projectone {
+			@include animate(5.0s);
+		}
+		.projecttwo {
+			@include animate(5.5s);
+		}
+		.projectthree {
+			@include animate(6.0s);
+		}
+		.projectfour {
+			@include animate(0.5s);
+		}
+		.projectfive {
+			@include animate(1.0s);
+		}
+		.projectsix {
+			@include animate(1.5s);
+				}
+		.view {
+			cursor: default;
+			float: left;
+			height: auto;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
+			width: 100%;
+			margin-bottom: 20px;
+			.mask, .content {
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+			img {
+				display: block;
+				position: relative;
+			}
+			h2 {
+				background-color: rgba(246, 112, 4, 0.8);
+				color: #FFFFFF;
+				font-size: 17px;
+				margin: 20px 0 20px 0;
+				padding: 10px;
+				position: relative;
+				text-align: center;
+				//text-transform: uppercase;
+			}
+			p {
+				color: #FFFFFF;
+				font-family: Georgia,serif;
+				font-size: 12px;
+				font-style: italic;
+				padding: 10px 20px 20px;
+				position: relative;
+				text-align: left;
+			}
+			a.info {
+				background: none repeat scroll 0 0 #332f46;
+				color: #FFFFFF;
+				display: inline-block;
+				margin-top: 30%;
+				padding: 7px 14px;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+			a.info:hover {
+				}
+		}
+	
+		.view-first { 
+			&:hover .mask {
+				opacity: 1;
+			}
+			&:hover h2,
+			&:hover p,
+			&:hover a.info {
+			   opacity: 1;
+				transform: translateY(0px);
+			}
+			&:hover p {
+				transition-delay: 0.1s;
+			}
+			&:hover a.info {
+				transition-delay: 0.2s;
+			}
+			img {
+				transition: all 0.2s linear 0s;
+			}
+			.mask {
+				background-color: rgba(51, 47, 70, 0.4);
+				opacity: 0;
+				transition: all 0.4s ease-in-out 0s;
+			}
+			h2 {
+				opacity: 0;
+				transform: translateY(-100px);
+				transition: all 0.2s ease-in-out 0s;
+			}
+			p {
+				opacity: 0;
+				transform: translateY(100px);
+				transition: all 0.2s linear 0s;
+			}
+			a.info {
+				opacity: 0;
+				transition: all 0.2s ease-in-out 0s;
+				& :hover img {
+			}
+		}
+	}
+}
+
+//portfolio projects ends
+
+//league of legends stats
+
+#leaguestats {
+	background: #262626;
+	//experimental
+	position: relative;
+	top: 600px;
+	z-index: 1000;
+	background: url(../img/lolbgstats.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  .statcircle {
+		border-radius: 50%;
+		color: #FFFFFF;
+		display: inline-block;
+		font-size: 22px;
+		font-weight: bold;
+		height: 120px;
+		text-align: center;
+		width: 115px;
+		margin: 10px 0 10px 0;
+		
+			p {
+				font-size: 14px;
+				font-weight: bold;
+				margin: 46px 0 0;
+				text-transform: uppercase!important;
+			}
+		}
+		.stattitle {
+			color: $white;
+			font-weight: bold;
+		}
+		
+		.leaguecircle {
+			@include skillset($lolcircle);
+		}
+		h2 {
+			color: $white;
+			font-size: 24px;
+			text-transform: uppercase;	
+			text-align: center;
+			font-weight: bold;
+		}
+		p {
+			color: $white;
+			text-align: center;
+		}
+		.fallingmoonstats {
+			ul {
+				display: inline-block;
+				list-style: none outside none;
+				margin: 15px -16px 0 -5px;
+				text-align: center;
+			}
+			
+		}
+		
+}
+
+//league of legends stats end
+
+//main content - Homepage
+
+.featuredprojectlol {
+	margin-top: 40px;
+    overflow: hidden;
+	color: $white;
+	//border-bottom: 4px solid $fixednavborder;
+		@media #{$tabletless} {
+			height: 440px;
+		}
+		@media #{$smalltabletless} {
+			height: 410px;
+			margin-top: 40px;
+			
+		}
+		@media #{$mobileless} {
+			margin-top: 60px;
+		}
+
+	.features {
+		@media #{$mobileless} {
+			//display: none;
+			
+		}
+		
+		.featuredproject {
+			position: relative;
+			top: 352px;
+			left: 280px;
+			z-index: $zindexdefault;
+			@include animate(4.5s);
+			max-width: 100%;
+				@media #{$tabletless} {
+					top: 355px;
+					left: 300px;
+					@include animate(4.5s);
+				}
+				@media #{$smalltabletless} {
+					top: 290px;
+					left: 210px;
+					@include animate(4.5s);
+				}
+				
+		}
+		.featureone {
+			position: relative;
+			top: 15px;
+			left: 100px;
+			@include animate(2.0s);
+			background: url('../img/featureone.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					left: 0;
+					top: 10px;
+				}
+				@media #{$smalltabletless} {
+					left: 0;
+					top: 10px;
+				}
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		.featuretwo {
+			position: relative;
+			top: 20px;
+			right: 60px;
+			@include animate(2.5s);
+			background: url('../img/featuretwo.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					right: 90px;
+					top: 30px;
+				}	
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		.featurethree {
+			position: relative;
+			top: 90px;
+			left: 100px;
+			@include animate(3.0s);
+			background: url('../img/featurethree.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					left: 10px;
+					top: 80px;
+				}	
+				@media #{$smalltabletless} {
+					left: 10px;
+					top: 80px;
+				}
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		.featurefour {
+			position: relative;
+			top: 95px;
+			right: 110px;
+			@include animate(3.5s);
+			background: url('../img/featurefour.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					//display: none;
+				}	
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		
+		.btn-project {
+			  @include button-variant(#F67004, #F67004, #F67004);
+			  border-bottom: 4px solid $projectbrder;
+			  border-radius: inherit!important;
+			  color: $white; 
+			  width: 190px;
+			  height: 40px;
+			  font-size: 18px;
+			  text-transform: uppercase;
+				&:hover,
+				&:focus,
+				&:active,
+				&.active {
+					background-color: $projectbrder;
+					border-color: $projectbrder;
+					color: $white!important;
+				}
+			}
+		}
+		
+		.latestproject {
+			@media #{$tabletless} {
+				display: none;
+			}
+			color: $white;
+			background: $bgmain;
+			border-left: 4px solid $lol;
+				p {
+					text-align: left;
+					font-size: 18px;
+					padding: 10px;
+				}			
+			}
+		}
+.maincontent {
+	margin-top: 30px;
+}
+
+//main content - Homepage ends

@@ -1,0 +1,971 @@
+// DW SCSS v1.0
+
+//_var
+
+$bodybg: #403e4c;
+$white: #ffffff;
+$scrollingnavfix: 50px;
+$bordermain: #f67004;
+$bgmain: #403e4c;
+$bgsecondary: darken($bgmain, 10%);
+$fixednavborder: darken($bgmain, 20%);
+$ux: #00a0dc;
+$ui: #9132f3;
+$wordpress: #1e67fc;
+$lol: #f21a57;
+$centreelements: 0 auto;
+$zindexdefault: 999;
+
+//skills colors
+
+$photoshop: #58365b;
+$fireworks: #823e77;
+$html: #3b5dbf;
+$sass: #3b4986;
+$css: #4b2c4e;
+$jquery: #673c6b;
+$bootstrap: #47579b;
+
+$lolcircle: #F67004;
+
+//breakpoints
+
+$tabletless: "(max-width: 1199px)";
+$smalltabletless: "(max-width: 991px)";
+$mobileless: "(max-width: 767px)";
+
+//btn variables
+
+$projectbrder: #e66700;
+
+//_var ends
+
+// DW SCSS v1.0
+
+//_mixin 
+
+@mixin fontbody {
+	font-family: Arial, serif;
+	font-size: 12px;
+}
+
+@mixin borderradius($radiusborder) {
+	moz-border-radius: $radiusborder;
+	-webkit-border-radius: $radiusborder;
+	border-radius: $radiusborder; /* future proofing */
+	-khtml-border-radius: $radiusborder; /* for old Konqueror browsers */
+}	
+
+@mixin myskills($skill) {
+	background: $skill;
+	padding: 0 5px 0 5px;	
+}
+
+@mixin projectfeatures {
+	height: 125px;
+	width: 127px;
+	visibility: visible;
+}
+
+@mixin animate($delayanimation) {
+	-webkit-animation-delay: $delayanimation;
+	-moz-animation-delay: $delayanimation; 
+	animation-delay: $delayanimation;
+}
+
+@mixin skillset($skillname) {
+	border: 4px solid $skillname;
+		p {
+			color: $skillname;
+		}
+}
+
+//button mixins
+
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 12%);
+  }
+  &:active,
+  &.active,
+  .open &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border
+    }
+  }
+}
+
+//_mixin ends 
+
+//_main styles
+
+body {
+	background: $bodybg repeat;
+}
+
+img {
+	max-width: 100%;
+}
+
+//_main styles end
+
+//_nav starts
+
+.navbar-default {
+    background-color: $bgsecondary;
+    border-bottom: 2px solid $fixednavborder;
+}
+
+ .navbar-nav {
+    > li > a {
+      color: $white!important;
+
+      &:hover,
+      &:focus {
+        color: $white!important;
+        background-color: #19181e!important;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $white!important;
+        background-color: $fixednavborder!important;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $white!important;
+        background-color: $fixednavborder!important;
+      }
+    }
+  }
+  
+  .navbar-toggle {
+		border: inherit;
+		&:hover,
+		&:focus {
+        background-color: inherit!important;
+      }
+  }
+  
+  .navbar-default
+	.navbar-collapse, 
+	.navbar-default 
+	.navbar-form {
+		border-color: inherit!important;
+	}
+
+//_nav ends
+
+//header 
+
+section {
+    max-width: 100%;
+    width: 100%;
+}
+
+#headerdw {
+    -moz-box-sizing: border-box;
+    background: url('../img/escheresque_ste.png') repeat; 
+    color: $white;
+    font-size: 24px;
+    font-weight: 400;
+    height: 600px;
+    overflow: hidden;
+    padding-top: 40px;
+	//border-bottom: 1px solid $fixednavborder;
+	//experimental
+	//position: fixed;
+	@media #{$tabletless} {
+		height: 600px;
+	}
+	@media #{$smalltabletless} {
+		position: inherit;
+		top: 0;
+		height: 600px;
+	}
+	@media #{$mobileless} {
+		height: 240px;	
+	}
+	.logo {
+		margin-bottom: 20px;
+	}
+	.headernav {
+		font-size: 12px;
+		.navelements {
+			ul {
+				list-style: none;
+				margin-left: -45px;
+			}
+			li {
+				
+				margin-left: 10px;
+				font-size: 14px;
+				text-transform: uppercase;
+				display: inline;
+				
+				> a {
+				  color: $white!important;
+				  border: 1px solid #403E4C;
+				  padding: 10px 15px 10px 15px;
+				  @include borderradius(5px);
+						-webkit-transition: 0.5s ease-in;
+						-moz-transition: 0.5s ease-in;
+						-o-transition: 0.5s ease-in;
+						transition: 0.5s ease-in;
+					  &:hover,
+					  &:focus {
+						color: $white!important;
+						text-decoration: none;
+						background-color: #403E4C!important;
+						-webkit-transition: background-color 1s ease-out;
+						-moz-transition: background-color 1s ease-out;
+						-o-transition: background-color 1s ease-out;
+						transition: background-color 1s ease-out;
+					  }
+					}	
+				}
+			}
+		}	
+	.showcasedp {
+		position: relative;
+		margin-top: 40px;
+			@media #{$mobileless} {
+				display: none;	
+			}
+	}
+		.firstshow {
+			bottom: 400px;
+			left: 30px;
+			position: absolute;
+			z-index: 100;
+			@include animate(0.5s);
+				@media #{$tabletless} {
+					bottom: 400px;
+					left: 0;
+					top: 20px;
+				}
+				@media #{$smalltabletless} {
+				}
+		}
+		.secondshow {
+			left: 250px;
+			position: relative;
+			top: 20px;
+			z-index: 200;
+			@include animate(1.0s);
+				@media #{$tabletless} {
+					bottom: 400px;
+					left: 150px;
+					top: 60px;
+				}
+				@media #{$smalltabletless} {
+					bottom: 400px;
+					left: 50px;
+					top: 60px;
+				}
+		}
+		.thirdshow {
+		    bottom: 350px;
+			left: 500px;
+			position: relative;
+			z-index: 300;
+			@include animate(1.5s);
+				@media #{$tabletless} {
+					bottom: 350px;
+					left: 330px;
+					//top: 100px;
+					margin-top: 40px;
+				}
+				@media #{$smalltabletless} {
+					bottom: 400px;
+					left: 110px;
+					margin-top: 100px;
+				}
+		}
+	
+	}
+	
+	.lolapp {
+		display: block;
+		margin: $centreelements;
+		max-width: 100%;
+		//margin-top: -30px;
+	}	
+	
+//header ends
+
+//intro
+
+#intro {
+	height: 60px;
+	background: #1c1721;
+	color: $bgsecondary;
+	//experimental
+	position: relative;
+	//top: 600px;
+	z-index: 1000;
+		h2 {
+			color: $white;
+			font-size: 18px;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	@media #{$smalltabletless} {
+		top: 0;
+	}	
+}
+
+//intro ends
+
+//skills
+
+#skills {
+	background: #23212f;
+	height: 405px;
+	overflow: hidden;
+	//experimental
+	position: relative;
+	//top: 600px;
+	z-index: 1000;
+		.dwintro {
+			color: $white;
+			margin-top: 65px;
+			@include fontbody;
+			position: relative;
+			z-index: 1000;
+			margin-bottom: 30px;
+			border-left: 4px solid $bordermain;
+			background: #2f2c3d;
+				@media #{$tabletless} {
+					margin-bottom: 0;
+				}
+				@media #{$mobileless} {
+					margin-bottom: 30px;
+					margin-top: 25px;
+				}
+				p {
+					padding: 10px;
+					font-size: 24px;
+				}
+				.ux {
+					@include myskills($ux)
+				}
+				.ui {
+					@include myskills($ui)
+				}
+				.wordpress {
+					@include myskills($wordpress)
+				}
+				.lol {
+					@include myskills($lol)
+				}
+		}
+
+	.heart {
+		background: url('../img/heart.png') no-repeat;
+		height: 35px;
+		width: 35px;
+		text-indent: -9999px;
+		padding: 5px 20px 20px;
+	}
+	h2 {
+		color: $white;
+		text-align: center;
+		font-size: 30px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	h3 {
+		color: $white;
+		text-align: center;
+		font-size: 20px!important;
+		text-transform: uppercase!important;
+		margin-bottom: 30px;
+		@include animate(0.5s);
+		
+	}
+	.skillstools {
+		//margin: 10px 0 20px 40px;
+	}
+		.photoshop {
+			@include skillset($photoshop);
+			@include animate(1.5s);
+		}
+		.fireworks {
+			@include skillset($fireworks);
+			@include animate(2.5s);
+		}
+		.html {
+			@include skillset($html);
+			@include animate(3.5s);
+		}
+		.sass {
+			@include skillset($sass);
+			@include animate(4.5s);
+		}
+		.css {
+			@include skillset($css);
+			@include animate(4.0s);
+		}
+		.jquery {
+			@include skillset($jquery);
+			@include animate(3.0s);
+		}
+		.bootstrap {
+			@include skillset($bootstrap);
+			@include animate(2.0s);
+		}
+	.statcircle {
+		border-radius: 50%;
+		color: #FFFFFF;
+		display: inline-block;
+		font-size: 22px;
+		font-weight: bold;
+		height: 120px;
+		text-align: center;
+		width: 115px;
+		margin: 10px 0 10px 0;
+			p {
+				font-size: 14px;
+				font-weight: bold;
+				margin: 44px 0 0;
+				text-transform: uppercase!important;
+			}
+		}
+		.firstrowskills {
+			
+		}
+		@media #{$smalltabletless} {
+			top: 0;
+			height: 360px;
+		}
+		@media #{$mobileless} {
+			height: inherit;	
+		}
+	}
+	
+//_subprojects
+
+
+.klzecom {
+height: 440px!important;
+	@media #{$tabletless} {
+			height: 420px!important;
+		}
+		@media #{$smalltabletless} {
+			height: 490px!important;
+			
+		}
+		@media #{$mobileless} {
+			height: inherit!important;
+		}
+}
+
+.klzreg {
+height: 440px!important;
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+height: 470px!important;
+}
+	@media #{$tabletless} {
+			height: 450px!important;
+		}
+		@media #{$smalltabletless} {
+			height: 490px!important;
+			
+		}
+		@media #{$mobileless} {
+			height: inherit!important;
+		}
+}
+
+.suts {
+height: 440px!important;
+	@media #{$tabletless} {
+			height: 420px!important;
+		}
+		@media #{$smalltabletless} {
+			height: 490px!important;
+			
+		}
+		@media #{$mobileless} {
+			height: inherit!important;
+		}
+}
+
+.lolproject {
+height: 440px!important;
+	@media #{$tabletless} {
+			height: 420px!important;
+		}
+		@media #{$smalltabletless} {
+			height: 490px!important;
+			
+		}
+		@media #{$mobileless} {
+			height: inherit!important;
+		}
+}
+
+.klzregnew {
+height: 440px!important;
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+height: 473px!important;
+}
+
+	@media #{$tabletless} {
+			height: 450px!important;
+		}
+		@media #{$smalltabletless} {
+			height: 520px!important;
+			
+		}
+		@media #{$mobileless} {
+			height: inherit!important;
+		}
+}
+
+.findelproject {
+height: 505px!important;
+	@media #{$tabletless} {
+			height: 485px!important;
+		}
+		@media #{$smalltabletless} {
+			height: 550px!important;
+			
+		}
+		@media #{$mobileless} {
+			height: inherit!important;
+		}
+}
+
+//skills end
+
+//portfolio projects
+
+#latestprojects {
+	//background: $white;
+	background: url('../img/latestprojects.jpg') repeat; 
+	//experimental
+	position: relative;
+	//top: 600px;
+	z-index: 1000;
+	@media #{$smalltabletless} {
+		top: 0;
+	}
+		.previewportfolio {
+			border: 4px solid #312E40;
+			margin-bottom: 15px;
+				img {
+					width: 100%!important;
+				}
+		}
+	
+		.projectintro {
+			background: #27212d;
+			border-left: 4px solid #F67004;
+			color: $white;
+			font-size: 18px;
+			margin: 20px 0 20px 0;
+				p {
+					padding: 10px;
+				}
+				ul {
+					padding-bottom: 10px;
+				}
+		}
+		.project {
+			margin: 10px 0 0 0;
+			img {
+				border: 4px solid #2A273A;
+				max-width: 100%;
+				@media #{$mobileless} {
+					width: 100%;
+				}	
+			}		
+		}
+		.projectone {
+			@include animate(5.0s);
+		}
+		.projecttwo {
+			@include animate(5.5s);
+		}
+		.projectthree {
+			@include animate(6.0s);
+		}
+		.projectfour {
+			@include animate(0.5s);
+		}
+		.projectfive {
+			@include animate(1.0s);
+		}
+		.projectsix {
+			@include animate(1.5s);
+				}
+		.view {
+			cursor: default;
+			float: left;
+			height: auto;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
+			width: 100%;
+			margin-bottom: 20px;
+			.mask, .content {
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+			img {
+				display: block;
+				position: relative;
+			}
+			h2 {
+				background-color: rgba(246, 112, 4, 0.8);
+				color: #FFFFFF;
+				font-size: 17px;
+				margin: 20px 0 20px 0;
+				padding: 10px;
+				position: relative;
+				text-align: center;
+				//text-transform: uppercase;
+			}
+			p {
+				color: #FFFFFF;
+				font-family: Georgia,serif;
+				font-size: 12px;
+				font-style: italic;
+				padding: 10px 20px 20px;
+				position: relative;
+				text-align: left;
+			}
+			a.info {
+				background: none repeat scroll 0 0 #332f46;
+				color: #FFFFFF;
+				display: inline-block;
+				margin-top: 30%;
+				padding: 7px 14px;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+			a.info:hover {
+				}
+		}
+	
+		.view-first { 
+			&:hover .mask {
+				opacity: 1;
+			}
+			&:hover h2,
+			&:hover p,
+			&:hover a.info {
+			   opacity: 1;
+				transform: translateY(0px);
+			}
+			&:hover p {
+				transition-delay: 0.1s;
+			}
+			&:hover a.info {
+				transition-delay: 0.2s;
+			}
+			img {
+				transition: all 0.2s linear 0s;
+			}
+			.mask {
+				background-color: rgba(51, 47, 70, 0.4);
+				opacity: 0;
+				transition: all 0.4s ease-in-out 0s;
+			}
+			h2 {
+				opacity: 0;
+				transform: translateY(-100px);
+				transition: all 0.2s ease-in-out 0s;
+			}
+			p {
+				opacity: 0;
+				transform: translateY(100px);
+				transition: all 0.2s linear 0s;
+			}
+			a.info {
+				opacity: 0;
+				transition: all 0.2s ease-in-out 0s;
+				& :hover img {
+			}
+		}
+	}
+}
+
+//portfolio projects ends
+
+//league of legends stats
+
+#leaguestats {
+	background: #262626;
+	//experimental
+	position: relative;
+	top: 600px;
+	z-index: 1000;
+	background: url(../img/lolbgstats.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  .statcircle {
+		border-radius: 50%;
+		color: #FFFFFF;
+		display: inline-block;
+		font-size: 22px;
+		font-weight: bold;
+		height: 120px;
+		text-align: center;
+		width: 115px;
+		margin: 10px 0 10px 0;
+		
+			p {
+				font-size: 14px;
+				font-weight: bold;
+				margin: 46px 0 0;
+				text-transform: uppercase!important;
+			}
+		}
+		.stattitle {
+			color: $white;
+			font-weight: bold;
+		}
+		
+		.leaguecircle {
+			@include skillset($lolcircle);
+		}
+		h2 {
+			color: $white;
+			font-size: 24px;
+			text-transform: uppercase;	
+			text-align: center;
+			font-weight: bold;
+		}
+		p {
+			color: $white;
+			text-align: center;
+		}
+		.fallingmoonstats {
+			ul {
+				display: inline-block;
+				list-style: none outside none;
+				margin: 15px -16px 0 -5px;
+				text-align: center;
+			}
+			
+		}
+		
+}
+
+//league of legends stats end
+
+//main content - Homepage
+
+.featuredprojectlol {
+	margin-top: 40px;
+    overflow: hidden;
+	color: $white;
+	//border-bottom: 4px solid $fixednavborder;
+		@media #{$tabletless} {
+			height: 440px;
+		}
+		@media #{$smalltabletless} {
+			height: 410px;
+			margin-top: 40px;
+			
+		}
+		@media #{$mobileless} {
+			//margin-top: 60px;
+			display: none;
+		}
+
+	.features {
+		@media #{$mobileless} {
+			//display: none;
+			
+		}
+		
+		.featuredproject {
+			position: relative;
+			top: 352px;
+			left: 280px;
+			z-index: $zindexdefault;
+			@include animate(4.5s);
+			max-width: 100%;
+				@media #{$tabletless} {
+					top: 355px;
+					left: 300px;
+					@include animate(4.5s);
+				}
+				@media #{$smalltabletless} {
+					top: 290px;
+					left: 210px;
+					@include animate(4.5s);
+				}
+				
+		}
+		.featureone {
+			position: relative;
+			top: 15px;
+			left: 100px;
+			@include animate(2.0s);
+			background: url('../img/featureone.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					left: 0;
+					top: 10px;
+				}
+				@media #{$smalltabletless} {
+					left: 0;
+					top: 10px;
+				}
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		.featuretwo {
+			position: relative;
+			top: 20px;
+			right: 60px;
+			@include animate(2.5s);
+			background: url('../img/featuretwo.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					right: 90px;
+					top: 30px;
+				}	
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		.featurethree {
+			position: relative;
+			top: 90px;
+			left: 100px;
+			@include animate(3.0s);
+			background: url('../img/featurethree.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					left: 10px;
+					top: 80px;
+				}	
+				@media #{$smalltabletless} {
+					left: 10px;
+					top: 80px;
+				}
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		.featurefour {
+			position: relative;
+			top: 95px;
+			right: 110px;
+			@include animate(3.5s);
+			background: url('../img/featurefour.png') no-repeat;
+			z-index: $zindexdefault;
+			@include projectfeatures;
+				@media #{$tabletless} {
+					//display: none;
+				}	
+				@media #{$mobileless} {
+					display: none;
+				}
+		}
+		
+		.btn-project {
+			  @include button-variant(#F67004, #F67004, #F67004);
+			  border-bottom: 4px solid $projectbrder;
+			  border-radius: inherit!important;
+			  color: $white; 
+			  width: 190px;
+			  height: 40px;
+			  font-size: 18px;
+			  text-transform: uppercase;
+				&:hover,
+				&:focus,
+				&:active,
+				&.active {
+					background-color: $projectbrder;
+					border-color: $projectbrder;
+					color: $white!important;
+				}
+			}
+		}
+		
+		.latestproject {
+			@media #{$tabletless} {
+				display: none;
+			}
+			color: $white;
+			background: $bgmain;
+			border-left: 4px solid $lol;
+				p {
+					text-align: left;
+					font-size: 18px;
+					padding: 10px;
+				}			
+			}
+		}
+.maincontent {
+	margin-top: 30px;
+}
+
+//main content - Homepage ends
+
+//footer
+
+#footer {
+	background: #201a25;
+	//experimental
+	position: relative;
+	//top: 600px;
+	z-index: 1000;
+		@media #{$tabletless} {
+		}
+		@media #{$smalltabletless} {
+			top: 0;
+		}
+		@media #{$mobileless} {
+			top: 0;
+		}
+		p {
+			text-align: right;
+			color: $white;
+			margin-top: 15px;
+			font-size: 11px;
+		}
+}
+
+//footer ends
