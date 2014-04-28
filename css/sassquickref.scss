@@ -1,0 +1,157 @@
+/* SASS Quick Ref Guide - Created by DW - v1.0 */
+
+_$vars - Variables to be passed through the stylesheet 
+
+$padding: 5px
+$defaultfontsize: 12px;
+$h2dw: 18px;
+$darkblue: #072949;
+$slightlylighterblue: lighten(#072949, 10%); // lighten #072949 by 10%
+$superdarkblue: darken(#072949, 30%); // darken #072949 by 30%
+$link: #072949;
+$hover: darken(#072949, 10%);
+$active: lighten(#072949, 5%);
+
+//example 1
+
+.main {
+	padding: $padding;
+}
+
+//compiles to
+
+.main {
+	padding: 5px;
+}
+
+_@mixins - Quick shortcodes to include in CSS declarations - use @include to apply - you can also @include inside a @mixin
+
+//example 1
+
+@mixin border-radius($radius) { //$radius will be a pixel or percentage value eg: 10px
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.border {
+	@include border-radius(10px);
+}
+
+//output compiled
+
+.border {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+
+//example 2
+
+@mixin fontbody {
+	font-family: Arial, serif;
+}
+
+body {
+	@include fontbody;
+	font-size: $defaultfontsize;
+	margin-top: 20px;
+}
+
+//output compiled
+
+body {
+	font-family: Arial, serif;
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+_nested CSS 
+
+//example 1
+
+#main {
+	color: $darkblue;
+	
+		.container {
+			width: 600px;
+			height: 600px
+		}
+	}	
+	
+//output compiled
+
+#main {
+	color: #072949;
+}	
+
+#main .container {
+	width: 600px;
+	height: 600px
+}
+
+//example 2 - for selectors
+
+a {
+	color: $link;
+		&:hover {
+			color: $hover;
+		}
+		&:active {
+			color: $active;
+		}
+}
+
+_maths - maths is fun 
+
+p {
+	font: 10px/8px;
+	$width: 500px
+	width: $width/2;
+	margin-left: 10px + 8px/2px;
+}
+
+_@extend - one selector should inherit the styles of another selector to prevent any style conflicts mid project!
+
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+
+//output compiled
+
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+_@if - I love if statements!
+
+$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+//output compiled
+
+p {
+	color: green;
+}

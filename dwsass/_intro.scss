@@ -1,0 +1,22 @@
+//intro
+
+#intro {
+	height: 60px;
+	background: $white;
+	color: $bgsecondary;
+	//experimental
+	position: relative;
+	//top: 600px;
+	z-index: 1000;
+		h2 {
+			color: $bgsecondary;
+			font-size: 18px;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	@media #{$smalltabletless} {
+		top: 0;
+	}	
+}
+
+//intro ends
